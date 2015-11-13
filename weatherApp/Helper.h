@@ -14,5 +14,7 @@
 #define OPEN_WEATHER_MAP_API_KEY @"706d037188c1b71a036953a36cf224fc"
 #define GMS_API_KEY @"AIzaSyBxWUslPysUWDQcvyK3barJ1saMS6brd54"
 
+//Show alert with OK button
++ (void)showOKAlertWithTitle:(NSString *)title andMessage:(NSString *)message;
 
 @end

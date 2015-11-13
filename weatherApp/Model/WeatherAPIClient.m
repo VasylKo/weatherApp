@@ -7,8 +7,8 @@
 //
 
 #import "WeatherAPIClient.h"
-@import CoreLocation;
 #import "Helper.h"
+#import "WeatherCondition.h"
 
 @interface WeatherAPIClient ()
 
@@ -26,25 +26,27 @@
     return self;
 }
 
-//- (void)fetchCurrentConditionsForLocation:(CLLocationCoordinate2D)coordinate
-- (void)fetchCurrentConditionsForLocation {
-    
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(50.46012686633918, 30.52173614501953);
+- (void)fetchCurrentConditionsForLocation:(CLLocationCoordinate2D)coordinate completionHandler:(void (^)(WeatherCondition *weatherCondition, CLLocationCoordinate2D position, NSError *error))completionHandler {
     
     NSString *urlString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&units=metric&APPID=%@",coordinate.latitude, coordinate.longitude, OPEN_WEATHER_MAP_API_KEY];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSError *jsonError = nil;
-        id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        if (!jsonError) {
-            
-            NSLog(@"%@", json);
-        }
-        else {
-            // 2
-            NSLog(@"ERROR! %@", [error localizedDescription]);
-        }
+        
+        if (!error) {
+            NSError *jsonError = nil;
+            id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+            if (!jsonError) {
+                WeatherCondition *weatherConditions =[[WeatherCondition alloc] initWithDictionary:json];
+                completionHandler(weatherConditions, coordinate, nil);
+            } else {
+                completionHandler(nil, coordinate, error);
+            }
+        } else {
+                // 2
+                NSLog(@"ERROR! %@", [error localizedDescription]);
+                
+            }
     }];
     
     [dataTask resume];

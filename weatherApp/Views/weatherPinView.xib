@@ -5,22 +5,27 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController">
+            <connections>
+                <outlet property="weatherImageView" destination="d6y-Qi-Nq3" id="p0e-Bg-WeR"/>
+                <outlet property="weatherTempLabel" destination="bgK-SB-0ml" id="lUw-xl-bvA"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="60" height="58"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="weather-clear" translatesAutoresizingMaskIntoConstraints="NO" id="d6y-Qi-Nq3">
-                    <rect key="frame" x="14" y="0.0" width="32" height="32"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-clear" translatesAutoresizingMaskIntoConstraints="NO" id="d6y-Qi-Nq3">
+                    <rect key="frame" x="14" y="2" width="32" height="32"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="XTg-Lo-LHE"/>
                         <constraint firstAttribute="width" constant="32" id="ljA-Pv-vs4"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="25.25°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgK-SB-0ml">
-                    <rect key="frame" x="0.0" y="32.5" width="60" height="25"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25.25°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="bgK-SB-0ml">
+                    <rect key="frame" x="0.0" y="33.5" width="60" height="24"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
