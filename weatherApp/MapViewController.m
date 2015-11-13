@@ -23,27 +23,13 @@
 
 @implementation MapViewController
 
+#pragma mark - View life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.weatheClient = [[WeatherAPIClient alloc] init];
     
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:50.46012686633918
-                                                            longitude:30.52173614501953
-                                                                 zoom:6];
-    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    [self.mapView setDelegate:self];
-    self.mapView.myLocationEnabled = YES;
-    self.view = self.mapView;
-    
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = self.mapView;
+    [self createGMSMap];
     
     //Listen for device did change orientation
     [[NSNotificationCenter defaultCenter]
@@ -53,9 +39,16 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)createGMSMap {
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate at zoom level 6.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:50.46012686633918
+                                                            longitude:30.52173614501953
+                                                                 zoom:6];
+    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    [self.mapView setDelegate:self];
+    self.mapView.myLocationEnabled = YES;
+    self.view = self.mapView;
 }
 
 #pragma mark - GMS Map View Delegate
@@ -100,6 +93,26 @@
 
 }
 
+//To show marker while moveing map
+- (void)mapView:(GMSMapView *)mapView
+didChangeCameraPosition:(GMSCameraPosition *)position {
+    [mapView clear];
+    NSArray *rectArray = [Grid gridForRect:self.view.bounds withZoomFactor:position.zoom];
+    for (NSValue *rectVal in rectArray) {
+        CGRect rect = [rectVal CGRectValue];
+        [self createPinMarkerForRect:rect];
+    }
+    
+}
+
+//Disable camera move to tapped marker
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+    mapView.selectedMarker = marker;
+    return YES;
+}
+
+#pragma mark - Create marker
+
 - (void)createMarkerForRect:(CGRect)rect {
     
     
@@ -109,6 +122,7 @@
     //Conver point on view to coordinates on map
     CLLocationCoordinate2D position = [self.mapView.projection coordinateForPoint:center];
     
+    //Get weather for location
     [self.weatheClient fetchCurrentConditionsForLocation:position completionHandler:^(WeatherCondition *weatherCondition, CLLocationCoordinate2D position, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -126,22 +140,27 @@
         
         
     }];
-    
-    
-    
 }
 
-- (UIView *)gridView {
-    if (!_gridView) {
-        _gridView = [[UIView alloc] initWithFrame:self.view.bounds];
-        _gridView.userInteractionEnabled = NO;
-    }
+- (void)createPinMarkerForRect:(CGRect)rect {
     
-    return _gridView;
+    
+    CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    center.y += 30; // to center weather pin view in grid rect. Weather pin view size is (60,60)
+    
+    //Conver point on view to coordinates on map
+    CLLocationCoordinate2D position = [self.mapView.projection coordinateForPoint:center];
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = position;
+    
+    marker.map = self.mapView;
+    
 }
 
 - (UIImage *)weatheIcon:(NSString *)imageName withTemp:(NSString *)temp {
-     UIView *weatherView =  [[[NSBundle mainBundle] loadNibNamed:@"weatherPinView" owner:self options:nil] objectAtIndex:0];
+    UIView *weatherView =  [[[NSBundle mainBundle] loadNibNamed:@"weatherPinView" owner:self options:nil] objectAtIndex:0];
     self.weatherImageView.image = [UIImage imageNamed:imageName];
     self.weatherTempLabel.text = [NSString stringWithFormat:@"%@°", temp];
     
@@ -158,45 +177,20 @@
     return resultingImage;
 }
 
+#pragma mark -
 - (void)orientationChanged:(NSNotification *)aNotification {
     //Update camera to trigger map view delegate and update grid
     [self.mapView moveCamera:[GMSCameraUpdate zoomBy:0.001]];
 }
 
-//Disable camera move to tapped marker
-- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-    mapView.selectedMarker = marker;
-    return YES;
-}
-
-- (void)mapView:(GMSMapView *)mapView
-didChangeCameraPosition:(GMSCameraPosition *)position {
-    [mapView clear];
-    NSArray *rectArray = [Grid gridForRect:self.view.bounds withZoomFactor:position.zoom];
-    for (NSValue *rectVal in rectArray) {
-        CGRect rect = [rectVal CGRectValue];
-        //NSLog(@"%@", NSStringFromCGRect(rect));
-        [self createPinMarkerForRect:rect];
+#pragma mark - For visual debug
+- (UIView *)gridView {
+    if (!_gridView) {
+        _gridView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _gridView.userInteractionEnabled = NO;
     }
     
+    return _gridView;
 }
-
-- (void)createPinMarkerForRect:(CGRect)rect {
-    
-    
-    CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-    center.y += 30; // to center weather pin view in grid rect. Weather pin view size is (60,60)
-    
-    //Conver point on view to coordinates on map
-    CLLocationCoordinate2D position = [self.mapView.projection coordinateForPoint:center];
-    
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = position;
-
-    marker.map = self.mapView;
-    
-}
-
 
 @end

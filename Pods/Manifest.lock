@@ -1,15 +1,10 @@
 PODS:
   - GoogleMaps (1.10.5)
-  - Mantle (2.0.5):
-    - Mantle/extobjc (= 2.0.5)
-  - Mantle/extobjc (2.0.5)
 
 DEPENDENCIES:
   - GoogleMaps
-  - Mantle (~> 2.0.5)
 
 SPEC CHECKSUMS:
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
-  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
 
 COCOAPODS: 0.39.0

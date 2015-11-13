@@ -1,7 +1,3 @@
-platform :ios, ‘9.0’
-
-pod 'Mantle', '~> 2.0.5'
-
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.1'
+platform :ios, '9.0'
 pod 'GoogleMaps'
