@@ -10,9 +10,11 @@
 		51148E6F1BEFF83D0084C32D /* WeatherCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 51148E6E1BEFF83D0084C32D /* WeatherCondition.m */; };
 		51148E771BF07ECC0084C32D /* weatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51148E761BF07ECC0084C32D /* weatherAppTests.m */; };
 		5136A7751BF4FB800041A5DB /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5136A7741BF4FB800041A5DB /* Grid.m */; };
+		5136A7771BF52DC20041A5DB /* weatherPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5136A7761BF52DC20041A5DB /* weatherPinView.xib */; };
+		5136A77A1BF52F070041A5DB /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5136A7791BF52F070041A5DB /* Helper.m */; };
 		516713C11BEFE84E00B1DEE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C01BEFE84E00B1DEE9 /* main.m */; };
 		516713C41BEFE84E00B1DEE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C31BEFE84E00B1DEE9 /* AppDelegate.m */; };
-		516713C71BEFE84E00B1DEE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C61BEFE84E00B1DEE9 /* ViewController.m */; };
+		516713C71BEFE84E00B1DEE9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C61BEFE84E00B1DEE9 /* MapViewController.m */; };
 		516713CA1BEFE84E00B1DEE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516713C81BEFE84E00B1DEE9 /* Main.storyboard */; };
 		516713CC1BEFE84F00B1DEE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 516713CB1BEFE84F00B1DEE9 /* Assets.xcassets */; };
 		516713CF1BEFE84F00B1DEE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516713CD1BEFE84F00B1DEE9 /* LaunchScreen.storyboard */; };
@@ -39,12 +41,15 @@
 		51148E781BF07ECC0084C32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5136A7731BF4FB800041A5DB /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		5136A7741BF4FB800041A5DB /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		5136A7761BF52DC20041A5DB /* weatherPinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = weatherPinView.xib; sourceTree = "<group>"; };
+		5136A7781BF52F070041A5DB /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		5136A7791BF52F070041A5DB /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		516713BC1BEFE84E00B1DEE9 /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516713C01BEFE84E00B1DEE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		516713C21BEFE84E00B1DEE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		516713C31BEFE84E00B1DEE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		516713C51BEFE84E00B1DEE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		516713C61BEFE84E00B1DEE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		516713C51BEFE84E00B1DEE9 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		516713C61BEFE84E00B1DEE9 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		516713C91BEFE84E00B1DEE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		516713CB1BEFE84F00B1DEE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		516713CE1BEFE84F00B1DEE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,8 +113,8 @@
 				516713D81BEFEC6C00B1DEE9 /* Views */,
 				516713C21BEFE84E00B1DEE9 /* AppDelegate.h */,
 				516713C31BEFE84E00B1DEE9 /* AppDelegate.m */,
-				516713C51BEFE84E00B1DEE9 /* ViewController.h */,
-				516713C61BEFE84E00B1DEE9 /* ViewController.m */,
+				516713C51BEFE84E00B1DEE9 /* MapViewController.h */,
+				516713C61BEFE84E00B1DEE9 /* MapViewController.m */,
 				516713C81BEFE84E00B1DEE9 /* Main.storyboard */,
 				516713CB1BEFE84F00B1DEE9 /* Assets.xcassets */,
 				516713CD1BEFE84F00B1DEE9 /* LaunchScreen.storyboard */,
@@ -123,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				516713C01BEFE84E00B1DEE9 /* main.m */,
+				5136A7781BF52F070041A5DB /* Helper.h */,
+				5136A7791BF52F070041A5DB /* Helper.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 		516713D81BEFEC6C00B1DEE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5136A7761BF52DC20041A5DB /* weatherPinView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				516713CF1BEFE84F00B1DEE9 /* LaunchScreen.storyboard in Resources */,
+				5136A7771BF52DC20041A5DB /* weatherPinView.xib in Resources */,
 				516713CC1BEFE84F00B1DEE9 /* Assets.xcassets in Resources */,
 				516713CA1BEFE84E00B1DEE9 /* Main.storyboard in Resources */,
 			);
@@ -329,8 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5136A7751BF4FB800041A5DB /* Grid.m in Sources */,
+				5136A77A1BF52F070041A5DB /* Helper.m in Sources */,
 				51148E6F1BEFF83D0084C32D /* WeatherCondition.m in Sources */,
-				516713C71BEFE84E00B1DEE9 /* ViewController.m in Sources */,
+				516713C71BEFE84E00B1DEE9 /* MapViewController.m in Sources */,
 				516713C41BEFE84E00B1DEE9 /* AppDelegate.m in Sources */,
 				516713C11BEFE84E00B1DEE9 /* main.m in Sources */,
 			);

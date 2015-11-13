@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define GRID_STEP 40.0
+#define GRID_STEP 60.0
 #define VERTICAL_OFFSET 20.0
 #define HORIZONTAL_OFFSET 20.0
 #define VERTICAL_SPACEING 10.0
