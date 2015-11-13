@@ -10,10 +10,12 @@
 @import GoogleMaps;
 #import "Grid.h"
 #import "Helper.h"
+#import "WeatherAPIClient.h"
 
 @interface MapViewController () <GMSMapViewDelegate>
 @property (nonatomic, strong) GMSMapView *mapView;
 @property (nonatomic, strong) UIView *gridView; //for visula debug
+@property (nonatomic, strong) WeatherAPIClient *weatheClient;
 @end
 
 @implementation MapViewController
@@ -21,9 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.weatheClient = [[WeatherAPIClient alloc] init];
+    [self.weatheClient fetchCurrentConditionsForLocation];
     
     // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
+    // coordinate at zoom level 6.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:50.46012686633918
                                                             longitude:30.52173614501953
                                                                  zoom:6];

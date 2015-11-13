@@ -12,6 +12,7 @@
 		5136A7751BF4FB800041A5DB /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5136A7741BF4FB800041A5DB /* Grid.m */; };
 		5136A7771BF52DC20041A5DB /* weatherPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5136A7761BF52DC20041A5DB /* weatherPinView.xib */; };
 		5136A77A1BF52F070041A5DB /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5136A7791BF52F070041A5DB /* Helper.m */; };
+		5136A77D1BF5CF9B0041A5DB /* WeatherAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5136A77C1BF5CF9B0041A5DB /* WeatherAPIClient.m */; };
 		516713C11BEFE84E00B1DEE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C01BEFE84E00B1DEE9 /* main.m */; };
 		516713C41BEFE84E00B1DEE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C31BEFE84E00B1DEE9 /* AppDelegate.m */; };
 		516713C71BEFE84E00B1DEE9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516713C61BEFE84E00B1DEE9 /* MapViewController.m */; };
@@ -44,6 +45,8 @@
 		5136A7761BF52DC20041A5DB /* weatherPinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = weatherPinView.xib; sourceTree = "<group>"; };
 		5136A7781BF52F070041A5DB /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		5136A7791BF52F070041A5DB /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		5136A77B1BF5CF9B0041A5DB /* WeatherAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPIClient.h; sourceTree = "<group>"; };
+		5136A77C1BF5CF9B0041A5DB /* WeatherAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPIClient.m; sourceTree = "<group>"; };
 		516713BC1BEFE84E00B1DEE9 /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516713C01BEFE84E00B1DEE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		516713C21BEFE84E00B1DEE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				51148E6E1BEFF83D0084C32D /* WeatherCondition.m */,
 				5136A7731BF4FB800041A5DB /* Grid.h */,
 				5136A7741BF4FB800041A5DB /* Grid.m */,
+				5136A77B1BF5CF9B0041A5DB /* WeatherAPIClient.h */,
+				5136A77C1BF5CF9B0041A5DB /* WeatherAPIClient.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				5136A7751BF4FB800041A5DB /* Grid.m in Sources */,
 				5136A77A1BF52F070041A5DB /* Helper.m in Sources */,
 				51148E6F1BEFF83D0084C32D /* WeatherCondition.m in Sources */,
+				5136A77D1BF5CF9B0041A5DB /* WeatherAPIClient.m in Sources */,
 				516713C71BEFE84E00B1DEE9 /* MapViewController.m in Sources */,
 				516713C41BEFE84E00B1DEE9 /* AppDelegate.m in Sources */,
 				516713C11BEFE84E00B1DEE9 /* main.m in Sources */,
